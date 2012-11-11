@@ -1,0 +1,7 @@
+<% envs = {} %>
+<% if defined?(ENV_KEYS_TO_EXPOSE) %>
+  <% envs = Hash[ENV_KEYS_TO_EXPOSE.map {|k| [k, ENV[k]]}] %>
+<% end %>
+
+window.qs = window.qs || {};
+window.qs.ENV = <%= JSON.dump(envs) %>;
