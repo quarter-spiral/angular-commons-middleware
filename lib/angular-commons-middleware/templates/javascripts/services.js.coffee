@@ -16,8 +16,9 @@ services.factory "qs_commons_http", ["$q", "$http", (q, http) ->
       url: url
 
     requestOptions.data = body  if body
-    headers = Authorization: "Bearer " + userService.currentUser().token
-    requestOptions["headers"] = headers
+    if userService.currentUser()
+      headers = Authorization: "Bearer " + userService.currentUser().token
+    requestOptions["headers"] = headers || {}
     http(requestOptions).success((data, status, headers, config) ->
       if options.returns isnt `undefined`
         deferred.resolve options.returns(data, status, headers, config)
