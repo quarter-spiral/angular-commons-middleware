@@ -1,3 +1,7 @@
+# 0.0.4 WIP
+
+* Exposes file paths to embedding systems (e.g. to use sprockets)
+
 # 0.0.3
 
 * Makes the HTTP service work without a token

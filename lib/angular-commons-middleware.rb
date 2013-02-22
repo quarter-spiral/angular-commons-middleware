@@ -12,8 +12,7 @@ module Angular
       def initialize(app)
         @app = app
 
-        root = File.expand_path('../angular-commons-middleware', __FILE__)
-        @brochure = Brochure.app(root)
+        @brochure = Brochure.app(self.class.root)
       end
 
       def call(env)
@@ -22,6 +21,10 @@ module Angular
         else
           @app.call(env)
         end
+      end
+
+      def self.root
+        File.expand_path('../angular-commons-middleware', __FILE__)
       end
 
       protected
