@@ -34,7 +34,7 @@ module Angular
 
       def serve_angular_asset(env)
         brochure_env = env.clone
-        brochure_env['PATH_INFO'] = brochure_env['PATH_INFO'].gsub(PATH_PREFIX, '/')
+        brochure_env['PATH_INFO'] = brochure_env['PATH_INFO'].gsub(/^\/angular-commons\/javascripts\//, "/angular-commons/")
         @brochure.call(brochure_env)
       end
     end

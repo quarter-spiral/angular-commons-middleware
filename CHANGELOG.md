@@ -1,3 +1,7 @@
+# 0.0.5 WIP
+
+* Fixes middleware
+
 # 0.0.4
 
 * Exposes file paths to embedding systems (e.g. to use sprockets)
